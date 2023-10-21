@@ -8,9 +8,10 @@ spotless = "6.22.0"
 
 # Libraries
 assertj = "3.24.2"
-commons-lang3 = "3.12.0"
 commons-io = "2.11.0"
+commons-lang3 = "3.12.0"
 junit-jupiter = "5.9.3"
+netty = "4.1.100.Final"
 slf4j = "2.0.7"
 
 [libraries]
@@ -23,11 +24,12 @@ spotless-gradle = { module = "com.diffplug.spotless:spotless-plugin-gradle", ver
 errorprone-config = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
 
 # Libraries
-commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
-commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
-slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+netty-all = { module = "io.netty:netty-all", version.ref = "netty" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
 
 [plugins]
 errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone" }

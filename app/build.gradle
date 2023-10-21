@@ -6,6 +6,7 @@ plugins {
 dependencies {
 	implementation project(':utilities')
 	implementation libs.commons.lang3
+	implementation libs.netty.all
 }
 
 application {
