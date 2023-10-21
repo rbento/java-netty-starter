@@ -6,4 +6,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'java-gradle-starter-build-logic'
+rootProject.name = 'java-netty-starter-build-logic'

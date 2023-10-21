@@ -6,6 +6,6 @@ pluginManagement {
 plugins {
 }
 
-rootProject.name = 'java-gradle-starter'
+rootProject.name = 'java-netty-starter'
 
 include('app', 'utilities')
