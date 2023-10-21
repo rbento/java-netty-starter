@@ -1,0 +1,11 @@
+
+pluginManagement {
+    includeBuild('build-logic')
+}
+
+plugins {
+}
+
+rootProject.name = 'java-gradle-starter'
+
+include('app', 'utilities')

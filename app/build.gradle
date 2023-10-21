@@ -1,0 +1,19 @@
+
+plugins {
+	id 'rbento.starter.java-application-conventions'
+}
+
+dependencies {
+	implementation project(':utilities')
+	implementation libs.commons.lang3
+}
+
+application {
+	mainClass = 'rbento.starter.app.App'
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': application.mainClass
+	}
+}
