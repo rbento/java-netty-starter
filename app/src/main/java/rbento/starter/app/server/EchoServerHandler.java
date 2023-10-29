@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * Implements EchoServer business logic.
  */
 @Slf4j
-@ChannelHandler.Sharable
+@ChannelHandler.Sharable // This class' instances can be safely shared among channels.
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
@@ -40,6 +40,9 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        /*
+         * Logs the error, if any, and closes the channel.
+         */
         log.error("[SERVER] Exception", cause);
         ctx.close();
     }

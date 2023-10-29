@@ -12,6 +12,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.net.InetSocketAddress;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 /*
  * EchoServerHandler implements the server business logic.
@@ -26,6 +27,7 @@ import lombok.SneakyThrows;
  *
  * After these steps the server would be initialized and ready to serve.
  */
+@Slf4j
 public class EchoServer {
     private int port;
 
@@ -50,7 +52,7 @@ public class EchoServer {
         try {
 
             /*
-             * Creates the ServerBootstrap with bootstraps and binds the server.
+             * Creates the ServerBootstrap which bootstraps and binds the server.
              */
             ServerBootstrap bootstrap = new ServerBootstrap();
 
@@ -81,6 +83,9 @@ public class EchoServer {
                         @Override
                         @SneakyThrows
                         protected void initChannel(SocketChannel socketChannel) {
+
+                            log.debug("initChannel: {} : {}", socketChannel.hashCode(), socketChannel);
+
                             socketChannel
                                     .pipeline()
 
@@ -111,5 +116,9 @@ public class EchoServer {
              */
             group.shutdownGracefully().sync();
         }
+    }
+
+    public static void main(String[] args) {
+        new EchoServer(3000).start();
     }
 }
