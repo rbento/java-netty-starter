@@ -1,7 +1,0 @@
-
-plugins {
-	id 'rbento.starter.java-library-conventions'
-}
-
-dependencies {
-}

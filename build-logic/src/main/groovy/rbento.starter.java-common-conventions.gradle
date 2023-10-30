@@ -1,56 +1,52 @@
 plugins {
-    id 'java'
-    id 'idea'
-    id 'io.freefair.lombok'
-    id 'net.ltgt.errorprone'
-    id 'com.diffplug.spotless'
+	id 'java'
+	id 'idea'
+	id 'io.freefair.lombok'
+	id 'net.ltgt.errorprone'
+	id 'com.diffplug.spotless'
 }
 
 repositories {
-    mavenLocal()
-    mavenCentral()
+	mavenLocal()
+	mavenCentral()
 }
 
 dependencies {
-    errorprone libs.errorprone.config
-    implementation libs.slf4j.simple
-    testImplementation libs.assertj.core
-    testImplementation libs.junit.jupiter
+	errorprone libs.errorprone.config
+	implementation libs.slf4j.simple
+	testImplementation libs.assertj.core
+	testImplementation libs.junit.jupiter
 }
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-        vendor = JvmVendorSpec.AZUL
-    }
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+		vendor = JvmVendorSpec.AZUL
+	}
 }
 
 spotless {
-    encoding 'UTF-8'
-    java {
-        target 'src/*/java/**/*.java'
-        targetExclude "${project.layout.buildDirectory}/**"
-        importOrder()
-        removeUnusedImports()
-        palantirJavaFormat(libs.versions.palantir.java.format.get())
-        formatAnnotations()
-        endWithNewline()
-        licenseHeaderFile "${project.rootDir}/COPYRIGHT"
-    }
+	encoding 'UTF-8'
+	java {
+		target 'src/*/java/**/*.java'
+		targetExclude "${project.layout.buildDirectory}/**"
+		importOrder()
+		removeUnusedImports()
+		palantirJavaFormat(libs.versions.palantir.java.format.get())
+		formatAnnotations()
+		endWithNewline()
+		licenseHeaderFile "${project.rootDir}/COPYRIGHT"
+	}
 }
 
-testing {
-    suites {
-        test {
-            useJUnitJupiter(libs.versions.junit.jupiter.get())
-        }
-    }
+tasks.named('test') {
+	useJUnitPlatform()
 }
 
 test {
-    testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
-    }
+	testLogging {
+		events "PASSED", "FAILED", "SKIPPED"
+	}
 }
 
 compileJava.dependsOn 'spotlessApply'

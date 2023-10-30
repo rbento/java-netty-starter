@@ -1,6 +1,5 @@
-
 pluginManagement {
-    includeBuild('build-logic')
+	includeBuild('build-logic')
 }
 
 plugins {
@@ -8,4 +7,4 @@ plugins {
 
 rootProject.name = 'java-netty-starter'
 
-include('app', 'utilities')
+include('app')
